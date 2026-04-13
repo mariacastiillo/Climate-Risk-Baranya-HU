@@ -13,7 +13,7 @@ As an international student living in Hungary, I analyzed 25 years of meteorolog
 ---
 
 ## Dashboard Preview
-> ![Climate Analysis Dashboard](PON_AQUI_EL_LINK_DE_TU_IMAGEN)
+> ![Dashboard](grafica%20de%20baranya.png) 
 > *Figure 1: Visualizing 25 years of temperature evolution and rainfall averages in Baranya.*
 
 ---
@@ -53,4 +53,4 @@ The raw data was distributed across 25 separate tables. I used **SQL** to consol
 
 ---
 ## About the Author
-**Maria Castillo** *Data Analyst & International Student in Hungary.* Focused on transforming complex datasets into strategic decisions. This project is part of a 5-project series focused on high-impact sector analysis.
+**Maria Castillo** 
