@@ -1,7 +1,7 @@
 # Climate Resilience Analysis: 25-Year Agricultural Trends in Baranya
 
 ### **Executive Summary**
-As an international student living in Hungary, I analyzed 25 years of meteorological data from the **NOAA Global Surface Summary of the Day** to understand how climate change is affecting the agricultural heart of the country. Using **SQL** for data engineering and **Power BI** for storytelling, this project identifies critical warming trends and peak temperature risks that threaten the resilience of regional vineyards and crops.
+As an **Earth Science student** based in Hungary, I analyzed 25 years of meteorological data from the NOAA to understand how climate change affects the regional agricultural heart. Using SQL and Power BI, this project identifies warming trends and peak temperature risks that threaten the resilience of regional vineyards.
 
 ---
 
