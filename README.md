@@ -52,5 +52,5 @@ The raw data was distributed across 25 separate tables. I used **SQL** to consol
 3.  **Predictive Alert System:** Use the historical peak data to set automated alerts when 10-day forecasts exceed the 90th percentile of this dataset.
 
 ---
-## About the Author
-**Maria Castillo** 
+## Author
+**María Castillo** 
