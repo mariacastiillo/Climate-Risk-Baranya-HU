@@ -32,7 +32,7 @@ WHERE
 ---
 
 ## 4. Dashboard Preview
-> ![Dashboard](grafica%20de%20baranya.png)
+> ![Dashboard](gragh_of_baranya.png)
 > *Figure 1: 25-year evolution of temperature and rainfall in Baranya.*
 
 ---
@@ -53,6 +53,4 @@ WHERE
 
 ## Author
 **María Castillo**
-  AND _TABLE_SUFFIX BETWEEN '00' AND '25'
-ORDER BY 
-  year ASC;
+ 
