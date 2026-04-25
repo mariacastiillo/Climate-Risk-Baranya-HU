@@ -1,5 +1,4 @@
 # Climate Resilience Analysis: 25-Year Agricultural Trends in Baranya
-### *Earth Science & Data Analytics for Precision Viticulture*
 
 ## 1. Executive Summary
 As an **Earth Science student** based in Hungary, I analyzed 25 years of meteorological data from the NOAA to understand the climate shift in the Baranya region. This project identifies warming trends and peak temperature risks that impact regional vineyards, specifically in the Villány wine district.
