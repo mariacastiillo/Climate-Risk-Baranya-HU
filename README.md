@@ -1,56 +1,50 @@
-# Climate Resilience Analysis: 25-Year Agricultural Trends in Baranya
+Climate Resilience Analysis: 25-Year Agricultural Trends in Baranya
+Earth Science & Data Analytics for Precision Viticulture
+1. Executive Summary
+As an Earth Science student based in Hungary, I analyzed 25 years of meteorological data from the NOAA to understand the climate shift in the Baranya region. This project identifies warming trends and peak temperature risks that impact regional vineyards, specifically in the Villány wine district.
 
-### **Executive Summary**
-As an **Earth Science student** based in Hungary, I analyzed 25 years of meteorological data from the NOAA to understand how climate change affects the regional agricultural heart. Using SQL and Power BI, this project identifies warming trends and peak temperature risks that threaten the resilience of regional vineyards.
+2. The Tech Stack
+SQL: Google BigQuery
 
----
+Data Cleaning: Microsoft Excel
 
-## The Tech Stack
-* **SQL (Google BigQuery):** Data extraction from wildcard tables, cleaning, and unit standardization.
-* **Power BI:** Data modeling, time-series visualization, and KPI dashboarding.
-* **Data Source:** NOAA Global Database (2000 - 2025).
+Visualization: Power BI
 
----
+Data Source: NOAA Global Database (2000-2025)
 
-## Dashboard Preview
-> ![Dashboard](grafica%20de%20baranya.png) 
-> *Figure 1: Visualizing 25 years of temperature evolution and rainfall averages in Baranya.*
+3. Technical Process: Data Engineering (SQL)
+I implemented a SQL pipeline to consolidate data across 25 years, handling unit conversion from imperial to metric and managing sensor null values for precipitation.
+ ```sql
+SELECT
+  CONCAT('20', _TABLE_SUFFIX) AS year,
+  ROUND((temp-32)*5/9,2) AS avg_temp_c,
+  ROUND(NULLIF(prcp,99.99)*25.4,2) AS rain_mm,
+  ROUND((max-32)*5/9,2) AS max_temp_c,
+  ROUND((min-32)*5/9,2) AS min_temp_c
+FROM
+  `bigquery-public-data.noaa_gsod.gsod20*`
+WHERE
+  stn = '129420'
 
----
+4. Dashboard Preview
+Figure 1: 25-year evolution of temperature and rainfall in Baranya.
 
-## The Business Problem
-Farmers and winemakers in the Baranya region (specifically in the Villány area) have noticed increased volatility in crop yields. This project aims to answer:
-1.  **Is there a statistically significant warming trend over the last 25 years?**
-2.  **What are the historical temperature peaks that trigger irrigation alerts?**
-3.  **How has the annual rainfall baseline shifted?**
+5. Key Insights & Results
+Warming Acceleration: The average annual temperature has increased from an 11.5°C baseline to a recent 13.8°C peak.
 
----
+Critical Thresholds: Historical peaks near 32°C serve as vital indicators for heat-stress prevention in local crops.
 
-## Technical Process
+Hydrological Shift: The consistency of low rainfall averages (1.76mm) combined with rising heat indicates a high risk of soil moisture depletion.
 
-### 1. Data Engineering (SQL)
-The raw data was distributed across 25 separate tables. I used **SQL** to consolidate over 9,000 daily records and handled sensor errors using `NULLIF` and `COALESCE`. 
-* **Standardization:** Temperatures were converted from tenths of degrees Celsius to standard Celsius units.
-* **Wildcard Queries:** Efficiently queried multiple years of data using `_TABLE_SUFFIX`.
+6. Business Recommendations
+Adaptive Irrigation: Adjust water allocation schedules based on the new 13.5°C baseline.
 
-### 2. Data Visualization (Power BI)
-* **Trend Analysis:** A dashed trend line was implemented to show the shift from an 11.5°C average to the recent 13.8°C peak.
-* **KPI Cards:** Created custom measures to highlight the **Historical Temperature Peak (31.89°C)** and **Average Annual Rainfall (1.76mm)**.
+Heat-Resistant Crops: Diversify with grape varieties that thrive in the identified "New Normal."
 
----
+Predictive Alert System: Use historical peak data to set automated alerts for extreme heat events.
 
-## Key Insights & Results
-* **Warming Acceleration:** The data shows a clear upward trajectory starting in 2017. The average annual temperature has increased by approximately **2.3°C** from the 2005 baseline.
-* **Critical Peaks:** The peak temperature of **31.89°C** serves as a vital threshold for heat-stress prevention in local agriculture.
-* **Dry Spells:** The consistency of low rainfall (1.76mm avg) combined with rising heat indicates a high risk of soil moisture depletion.
-
----
-
-## Business Recommendations
-1.  **Adaptive Irrigation:** Regional planners should adjust water allocation schedules based on the new 13.5°C baseline established in the last 3 years.
-2.  **Heat-Resistant Crops:** Vineyard owners should consider diversifying with grape varieties that thrive in the warmer "New Normal" identified in this study.
-3.  **Predictive Alert System:** Use the historical peak data to set automated alerts when 10-day forecasts exceed the 90th percentile of this dataset.
-
----
-## Author
-**María Castillo** 
+Author
+María Castillo
+  AND _TABLE_SUFFIX BETWEEN '00' AND '25'
+ORDER BY 
+  year ASC;
